@@ -9,6 +9,11 @@
 #ifndef __SpaceVikingX__BackgroundLayer__
 #define __SpaceVikingX__BackgroundLayer__
 
-#include <iostream>
+#include "cocos2d.h"
+USING_NS_CC;
+class BackgroundLayer:public CCLayer{
+public: virtual bool init();
+        CREATE_FUNC(BackgroundLayer);
+};
 
 #endif /* defined(__SpaceVikingX__BackgroundLayer__) */
