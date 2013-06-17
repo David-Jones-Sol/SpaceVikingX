@@ -9,7 +9,7 @@
 #include "GameObject.h"
 bool GameObject::init(){
     bool bRet = false;
-    bRet = CCSprite::init();
+    bRet = true;// CCSprite::init();
     if (bRet) {
         CCLOG("GameObject init");
         screenSize = CCDirector::sharedDirector()->getWinSize();

@@ -40,7 +40,8 @@ bool GameplayLayer::init(){
         viking->setattackButton(attackButton);
         viking->setPosition(ccp(screenSize.width*0.35f,screenSize.height*0.14f));
         viking->setCharacterHealth(100);
-        
+       
+
         sceneSpriteBatchNode->addChild(viking,kVikingSpriteZValue,kVikingSpriteTagValue);
         this->createObjectOfType(kEnemyTypeRadarDish, 100, ccp(screenSize.width*0.878f,screenSize.height*0.13f), 10);
         this->scheduleUpdate();

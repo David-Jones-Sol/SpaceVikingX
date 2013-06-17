@@ -320,17 +320,17 @@ void Viking::initAnimations() {
 
 #pragma mark -
 bool Viking::init() {
-    bool  bRet = GameCharacter::init();
+    bool  bRet =  GameCharacter::init();
     if( bRet) {
-        //        joystick = nil;
-        //        jumpButton = nil;
-        //        attackButton = nil;
+        joystick = NULL;
+        jumpButton = NULL;
+        attackButton = NULL;
         this->setGameObjectType(kVikingType);
+       
         myLastPunch = kRightHook;
         millisecondsStayingIdle = 0.0f;
         isCarryingMallet = false;
         this->initAnimations();
-        
     }
     return bRet;
 }
@@ -348,6 +348,6 @@ Viking* Viking::createWithSpriteFrameName(const char *pszSpriteFrameName) {
         pobSprite->autorelease();
         return pobSprite;
     }
-//    CC_SAFE_DELETE(pobSprite);
+    CC_SAFE_DELETE(pobSprite);
     return NULL;
 }

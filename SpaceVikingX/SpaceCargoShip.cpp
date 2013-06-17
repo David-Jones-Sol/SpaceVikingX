@@ -35,7 +35,22 @@ bool SpaceCargoShip:: init()
         CCPoint position3 = ccp(position2.x * -1.0f, shipHeight);
         CCPoint offScreen = ccp(screenSize.width * -1.0f,
                                 screenSize.height * -1.0f);
-        void* action=CCRepeatForever::create(CCSequence::create(CCDelayTime::create(2.0f),CCMoveTo::create(0.01f, position1),CCScaleTo::create(0.01, 0.5),CCFlipX::create(true),CCMoveTo::create(8.5, position2),CCScaleTo::create(0.1, 1.0),CCFlipX::create(false),CCMoveTo::create(7.5, position3),CCScaleTo::create(0.1, 2.0),CCFlipX::create(true),CCScaleTo::create(0.1, 4.0),CCMoveTo::create(4.5, position2),CCCallFunc::create(this, callfunc_selector(SpaceCargoShip::dropCargo)),CCMoveTo::create(0.0, offScreen),NULL));
+        void* action=CCRepeatForever::create(CCSequence::create(
+                                                                CCDelayTime::create(2.0f),
+                                                                CCMoveTo::create(0.01f, position1),
+                                                                CCScaleTo::create(0.01, 0.5),
+                                                                CCFlipX::create(true),
+                                                                CCMoveTo::create(8.5, position2),CCScaleTo::create(0.1, 1.0),
+                                                                CCFlipX::create(false),
+                                                                CCMoveTo::create(7.5, position3),CCScaleTo::create(0.1, 2.0),CCFlipX::create(true),
+                                                                
+                                                                CCMoveTo::create(6.5, position2),
+                                                                CCFlipX::create(false),
+                                                                CCScaleTo::create(0.1, 2.0),
+                                                                CCMoveTo::create(5.5, position3),
+                                                                CCFlipX::create(true),
+                                                                
+                                                                CCScaleTo::create(0.1, 4.0),CCMoveTo::create(4.5, position2),CCCallFunc::create(this, callfunc_selector(SpaceCargoShip::dropCargo)),CCMoveTo::create(0.0, offScreen),NULL));
 
       
         this->runAction((CCAction*)action);

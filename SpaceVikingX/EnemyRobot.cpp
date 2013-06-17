@@ -106,6 +106,7 @@ CCRect EnemyRobot::eyesightBoundingBox(){
             
         case kStateAttacking:
         { CCLOG("EnemyRobot->Changing State to Attacking");
+           
             action =CCSequence::create(CCAnimate::create(raisePhaserAnim),CCDelayTime::create(1.0f),CCAnimate::create(shootPhaserAnim),CCCallFunc::create(this, callfunc_selector(EnemyRobot:: shootPhaser)),CCAnimate::create(lowerPhaserAnim),CCDelayTime::create(2.0f),NULL);
         }
             break;
@@ -211,13 +212,14 @@ CCRect EnemyRobot:: AdjustedBoundingBox() {
 #pragma mark -
 #pragma mark initAnimations
 void EnemyRobot:: initAnimations() {
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("robotWalkingAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("raisePhaserAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("shootPhaserAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("lowerPhaserAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("torsoHitAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("headHitAnim", typeid(this).name()));
-    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("robotDeathAnim", typeid(this).name()));
+   
+    this->setRobotWalkingAnim(this->loadPlistForAnimationWithName("robotWalkingAnim", typeid(*this).name()));
+    this->setRaisePhaserAnim(this->loadPlistForAnimationWithName("raisePhaserAnim", typeid(*this).name()));
+    this->setShootPhaserAnim(this->loadPlistForAnimationWithName("shootPhaserAnim", typeid(*this).name()));
+    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("lowerPhaserAnim", typeid(*this).name()));
+    this->setTorsoHitAnim(this->loadPlistForAnimationWithName("torsoHitAnim", typeid(*this).name()));
+    this->setLowerPhaserAnim(this->loadPlistForAnimationWithName("headHitAnim", typeid(*this).name()));
+    this->setRobotDeathAnim(this->loadPlistForAnimationWithName("robotDeathAnim", typeid(*this).name()));
     
    
 }
